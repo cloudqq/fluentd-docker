@@ -11,4 +11,4 @@ before_install:
 script:
   - docker build --no-cache -t cloudqq/fluentd-docker .
   - docker tag cloudqq/fluentd-docker:latest cloudqq/fluentd-docker:v1
-  - docker push cloudqq/fluentd
+  - docker push cloudqq/fluentd-docker:latest
