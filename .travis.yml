@@ -1,0 +1,14 @@
+language: ruby
+branches:
+  only:
+    - master
+services:
+  - docker
+
+before_install:
+  - docker login -u="$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+
+script:
+  - docker build --no-cache -t cloudqq/fluentd-docker .
+  - docker tag cloudqq/fluentd-docker:latest cloudqq/fluentd-docker:v1
+  - docker push cloudqq/fluentd
